@@ -1,0 +1,2 @@
+Influencer contention
+Prevent network thread exception on exit after networking

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsDevice.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationDisplay.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationSystem.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigReader.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Influencer.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionRegister.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Arena.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ball.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsDevice.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationDisplay.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationSystem.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigReader.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Influencer.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionRegister.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Arena.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{7b517293-a40b-41a5-9cca-929250b6f3a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{27cee8fd-b9ad-4b7d-994e-1ce43dfcbf76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Components">
+      <UniqueIdentifier>{f207bf3e-754f-49b7-bd9e-6256984fcdd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Ball Textures">
+      <UniqueIdentifier>{f5475a2c-23fc-44ff-bf8e-c279a343cf36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Assets\Simulation.cfg">
+      <Filter>Assets</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="..\Assets\BallTextures\heavy.png">
+      <Filter>Assets\Ball Textures</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="..\Assets\BallTextures\light.png">
+      <Filter>Assets\Ball Textures</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="..\Assets\BallTextures\medium.png">
+      <Filter>Assets\Ball Textures</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+</Project>
