@@ -127,4 +127,7 @@
       <Filter>Assets\Ball Textures</Filter>
     </ImageContentTask>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

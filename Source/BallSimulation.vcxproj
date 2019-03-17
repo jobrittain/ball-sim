@@ -109,16 +109,10 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>@echo off
-
-if "$(PlatformTarget)" == "x64" (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar64.dll" "$(OutDir)" /D /Y &gt; nul
-) else (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar.dll" "$(OutDir)" /D /Y &gt; nul
-)
 
 if exist "$(OutDir)*.cso" (
 if not exist "$(OutDir)Shaders\" md "$(OutDir)Shaders\" &gt; nul
@@ -142,17 +136,11 @@ move /Y "$(OutDir)*.dds" "$(OutDir)Textures\" &gt; nul
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>@echo off
 xcopy "$(SolutionDir)Assets\Simulation.cfg" "$(OutDir)" /D /Y &gt; nul
-
-if "$(PlatformTarget)" == "x64" (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar64.dll" "$(OutDir)" /D /Y &gt; nul
-) else (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar.dll" "$(OutDir)" /D /Y &gt; nul
-)
 
 if exist "$(OutDir)*.cso" (
 if not exist "$(OutDir)Shaders\" md "$(OutDir)Shaders\" &gt; nul
@@ -179,16 +167,10 @@ move /Y "$(OutDir)*.dds" "$(OutDir)Textures\" &gt; nul
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>@echo off
-
-if "$(PlatformTarget)" == "x64" (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar64.dll" "$(OutDir)" /D /Y &gt; nul
-) else (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar.dll" "$(OutDir)" /D /Y &gt; nul
-)
 
 if exist "$(OutDir)*.cso" (
 if not exist "$(OutDir)Shaders\" md "$(OutDir)Shaders\" &gt; nul
@@ -215,17 +197,11 @@ move /Y "$(OutDir)*.dds" "$(OutDir)Textures\" &gt; nul
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;ws2_32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>@echo off
 xcopy "$(SolutionDir)Assets\Simulation.cfg" "$(OutDir)" /D /Y &gt; nul
-
-if "$(PlatformTarget)" == "x64" (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar64.dll" "$(OutDir)" /D /Y &gt; nul
-) else (
-xcopy "$(SolutionDir)Libraries\AntTweakBar\Build\$(PlatformTarget)\AntTweakBar.dll" "$(OutDir)" /D /Y &gt; nul
-)
 
 if exist "$(OutDir)*.cso" (
 if not exist "$(OutDir)Shaders\" md "$(OutDir)Shaders\" &gt; nul
@@ -280,8 +256,20 @@ move /Y "$(OutDir)*.dds" "$(OutDir)Textures\" &gt; nul
   <ItemGroup>
     <Text Include="..\Assets\Simulation.cfg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
+    <Import Project="..\packages\directxtk_desktop_2015.2019.2.7.1\build\native\directxtk_desktop_2015.targets" Condition="Exists('..\packages\directxtk_desktop_2015.2019.2.7.1\build\native\directxtk_desktop_2015.targets')" />
+    <Import Project="..\packages\AntTweakBar.1.16.4\build\native\AntTweakBar.targets" Condition="Exists('..\packages\AntTweakBar.1.16.4\build\native\AntTweakBar.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\directxtk_desktop_2015.2019.2.7.1\build\native\directxtk_desktop_2015.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtk_desktop_2015.2019.2.7.1\build\native\directxtk_desktop_2015.targets'))" />
+    <Error Condition="!Exists('..\packages\AntTweakBar.1.16.4\build\native\AntTweakBar.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AntTweakBar.1.16.4\build\native\AntTweakBar.targets'))" />
+  </Target>
 </Project>
